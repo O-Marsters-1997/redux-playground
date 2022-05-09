@@ -1,10 +1,10 @@
-
-import './App.css';
+import "./App.css";
+import CounterPage from "./pages/CounterPage";
 
 function App() {
   return (
     <div className="App">
-      hello world
+      <CounterPage/>
     </div>
   );
 }
