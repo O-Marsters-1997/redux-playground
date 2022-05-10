@@ -1,11 +1,11 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
-const initialState = { counter: 0, showCounter: true };
+const initialCounterState = { counter: 0, showCounter: true };
 
 // below has to have a name
 const counterSlice = createSlice({
   name: "counter",
-  initialState,
+  initialState: initialCounterState,
   //   if you decalre a property of an object in modern js with the same name as a variable then it will automatically become the value of that previously defined variable.
   reducers: {
     increment(state) {
@@ -21,15 +21,32 @@ const counterSlice = createSlice({
       state.counter = state.counter + action.payload;
     },
     toggle(state) {
-        // console.log("jdbfkd")
+      // console.log("jdbfkd")
       state.showCounter = !state.showCounter;
     },
   },
 });
 
+const initialAuthState = { loggedin: false };
+
+const authSlice = createSlice({
+  name: "auth",
+  initialState: initialAuthState,
+  reducers: {
+    login(state) {
+      state.loggedin = true;
+    },
+    logout(state) {
+      state.loggedin = false;
+    },
+  },
+});
+
 const store = configureStore({
-  reducer: counterSlice.reducer,
+  // map of reducers as an object where you can have keynames of your choice with the value pairing as being thename of the specific slice
+  reducer: { counter: counterSlice.reducer, auth: authSlice.reducer },
 });
 
 export const counterActions = counterSlice.actions;
+export const authActions = authSlice.actions;
 export default store;

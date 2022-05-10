@@ -1,24 +1,28 @@
 import React from "react";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
+import { useDispatch } from "react-redux";
+import {authActions} from "../store/index";
 import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
 import Input from "@mui/material/Input";
+import Button from "@mui/material/Button";
 
-const LoginPage = () => {
+const Login = () => {
+  const dispatch = useDispatch();
+
+  const handleSignin = () => {
+    dispatch(authActions.login());
+  };
+
   return (
-    <Box>
-      <Typography variant="h4">Login Page</Typography>
+    <form>
       <FormControl>
-        <Input placeholder="email" id="my-input" />
+        <Input id="email-input" placeholder="email" />
       </FormControl>
       <FormControl>
-        <Input placeholder="password" id="my-input" />
+        <Input id="password-input" placeholder="passoword" />
       </FormControl>
-      <Button>Sign in</Button>
-    </Box>
+      <Button onClick={handleSignin}>Log in</Button>
+    </form>
   );
 };
 
-export default LoginPage;
+export default Login;

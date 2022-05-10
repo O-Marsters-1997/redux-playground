@@ -20,8 +20,8 @@ const ButtonGroup = styled("div")(() => ({
 }));
 
 const Counter = () => {
-  const counter = useSelector((state) => state.counter);
-  const showCounter = useSelector((state) => state.showCounter);
+  const counter = useSelector((state) => state.counter.counter);
+  const showCounter = useSelector((state) => state.counter.showCounter);
   //   useSelector automatically sets up a subscription for the redux store for component, so component will be automatically updated.
   const dispatch = useDispatch();
 
