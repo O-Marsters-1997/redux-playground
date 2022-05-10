@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/system";
+import { counterActions } from "../store/index";
 
 const ButtonGroup = styled("div")(() => ({
   height: "fit-content",
@@ -25,19 +26,19 @@ const Counter = () => {
   const dispatch = useDispatch();
 
   const increment = () => {
-    dispatch({ type: "increment" });
+    dispatch(counterActions.increment());
   };
 
   const increaseHandler = () => {
-    dispatch({ type: "increase", amount: 5 });
+    dispatch(counterActions.increase(10));
   };
 
   const decrement = () => {
-    dispatch({ type: "decrement" });
+   dispatch(counterActions.decrement());;
   };
 
   const toggle = () => {
-    dispatch({ type: "toggle" });
+    dispatch(counterActions.toggle());;
   };
 
   return (
@@ -56,7 +57,7 @@ const Counter = () => {
         >
           + 5
         </Button>
-        <Button onClick={decrement} variant="outlined" sx= {{display:"block"}}>
+        <Button onClick={toggle} variant="outlined" sx={{ display: "block" }}>
           Toggle
         </Button>
       </ButtonGroup>
@@ -65,3 +66,6 @@ const Counter = () => {
   );
 };
 export default Counter;
+
+// Very Important to note that you should never mutate a stte but instead you should overide the state with a brand new state object.
+// If you do this wrong can have unwanted side effects that can negatively effect behaviour.
