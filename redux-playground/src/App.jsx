@@ -1,12 +1,14 @@
 import "./App.css";
-import CounterPage from "./pages/CounterPage";
+// import CounterPage from "./pages/CounterPage";
+import LoginPage from "./pages/LoginPage";
 import Header from "./components/Header";
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <CounterPage/>
+      <Header />
+      {/* <CounterPage/> */}
+      <LoginPage/>
     </div>
   );
 }
