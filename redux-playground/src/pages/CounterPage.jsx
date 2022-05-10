@@ -1,11 +1,11 @@
 import React from 'react'
-import Header from '../components/Header'
+import Title from '../components/Title'
 import Counter from "../components/Counter";
 
 const CounterPage = () => {
     return (
         <div>
-            <Header/>
+            <Title/>
             <Counter/>
         </div>
     )
